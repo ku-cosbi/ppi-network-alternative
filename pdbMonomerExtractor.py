@@ -1,7 +1,3 @@
-#################
-## Created by Engin Cukuroglu
-#################
-
 import os,sys,time
 from multiprocessing import Queue, Process
 import multiprocessing

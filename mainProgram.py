@@ -1,7 +1,3 @@
-#################
-## Created by Engin Cukuroglu
-#################
-
 from pdbMonomerExtractor import mainPDBMonomerExtractor
 from TMAlignDriverForStructures import mainTMAlignDriverForStructures
 from pdbClustererForGeneID import mainPDBClustererForGeneID

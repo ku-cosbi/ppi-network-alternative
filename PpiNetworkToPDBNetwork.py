@@ -14,7 +14,7 @@ for PPI in geneIdNetworkFile:
         
         splittedPPI = PPI.split(' ')
         protein1 = splittedPPI[0]
-        protein2 = splittedPPI[2][:-1]
+        protein2 = splittedPPI[2][:-2]
         #print(protein1)
         #print(protein2)
         alternativeConfs1 = []
@@ -26,17 +26,18 @@ for PPI in geneIdNetworkFile:
                 
                 splittedGeneId = geneId.split('\t')
                 #print(splittedGeneId[1])
-                alternativeConfs = splittedGeneId[2].split(',')
+                if len(splittedGeneId) > 2:
+                        alternativeConfs = splittedGeneId[2].split(',')
                 
-                if splittedGeneId[0] == protein1:
-                        for i in range(0, int(splittedGeneId[1])):
-                                alternativeConfs1.append(alternativeConfs[i][:4] + alternativeConfs[i][5:6])
-                        found1 = True
+                        if splittedGeneId[0] == protein1:
+                                for i in range(0, int(splittedGeneId[1])):
+                                        alternativeConfs1.append(alternativeConfs[i][:4] + alternativeConfs[i][5:6])
+                                found1 = True
                         
-                elif splittedGeneId[0] == protein2:
-                        for i in range(0, int(splittedGeneId[1])):
-                                alternativeConfs2.append(alternativeConfs[i][:4] + alternativeConfs[i][5:6])
-                        found2 = True
+                        elif splittedGeneId[0] == protein2:
+                                for i in range(0, int(splittedGeneId[1])):
+                                        alternativeConfs2.append(alternativeConfs[i][:4] + alternativeConfs[i][5:6])
+                                found2 = True
                         
                 if found1 and found2:
                         for alternativeConf1 in alternativeConfs1:
